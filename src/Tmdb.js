@@ -13,14 +13,14 @@
 const API_KEY = "55adef2d3f64e426127969fa1b0eab55"
 const API_BASE = "https://api.themoviedb.org/3"
 
-const basicFetch = async(endpoint)=>{
-    const req = await fetch (`${API_BASE}${endpoint}`);
+const basicFetch = async (endpoint) => {
+    const req = await fetch(`${API_BASE}${endpoint}`);
     const json = await req.json();
     return json;
 }
 
 export default {
-    getHomeList: async ()=>{
+    getHomeList: async () => {
         return [
             {
                 slug: 'originals',
@@ -64,6 +64,25 @@ export default {
             },
 
         ];
+    },
+    getMovieInfo: async (movieId, type) => {
+        let info = {};
+        if (movieId) {
+            switch (type) {
+                
+                case 'movie':
+                info = await basicFetch(`/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`)
+                break;
+
+                case 'tv':
+                info = await basicFetch(`/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`)
+                break;
+
+                default:
+                info = null;
+                break;
+            }
+        }
+        return info
     }
-    
 }
