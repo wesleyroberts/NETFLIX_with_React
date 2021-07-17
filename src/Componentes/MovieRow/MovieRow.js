@@ -4,14 +4,24 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 export default function MovieRow({key,title,items}) {
    
-    const[scrollx, setScrollx]= useState(-400);
+    const[scrollx, setScrollx]= useState(0);
+    //função de que movimenta lista para direita 
+    //usando o window.innerWidth para pegar o tamanho da tela apresentada e assim fazer a movimentação por pixel
     const handleLeftArrow= ()=>{
-        let x = scrollx+250;
+        let x = scrollx+Math.round(window.innerWidth/2);
         if(x>0){x=0;}
         setScrollx(x);
     }
+    //função de que movimenta lista para direita 
     const handleRightArrow= ()=>{
-
+        //pegando o valor do tamanho da tela
+        let x = scrollx-Math.round(window.innerWidth/2);
+        //recebendo o valor da quantidade de items vezes a largura deles de 150 px
+        let listWidth = items.results.length * 150;
+        //condição para que a lista pare no final dela
+        if((window.innerWidth - listWidth)>x){
+            x = (window.innerWidth-listWidth) - 60 ;        }
+        setScrollx(x)
     }
    
     return (
