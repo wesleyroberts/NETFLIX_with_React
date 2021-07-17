@@ -52,6 +52,12 @@ export default function App() {
               <MovieRow key={key} title={item.title} items={item.items}/>
           ))}
         </section>
+
+        <footer className="footer">
+          Feito com carinho por Wesley Roberts<br/>
+          Direitos de imagem para Netflix<br/>
+          Dados pegos do site Themoviedb.org
+        </footer>
     </div>
   )
 }

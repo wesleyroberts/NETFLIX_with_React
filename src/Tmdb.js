@@ -29,7 +29,7 @@ export default {
             },
             {
                 slug: 'trending',
-                title: 'Recomendados para voce',
+                title: 'Recomendados para você',
                 items: await basicFetch(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`)
             },
             {
@@ -39,17 +39,17 @@ export default {
             },
             {
                 slug: 'action',
-                title: 'Acao',
+                title: 'Ação',
                 items: await basicFetch(`/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
             },
             {
                 slug: 'comedy',
-                title: 'comedia',
+                title: 'Comédia',
                 items: await basicFetch(`/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
             },
             {
                 slug: 'Horror',
-                title: 'terror',
+                title: 'Terror',
                 items: await basicFetch(`/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
             },
             {
@@ -59,7 +59,7 @@ export default {
             },
             {
                 slug: 'documentary',
-                title: 'documentarios',
+                title: 'Documentários',
                 items: await basicFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
             },
 
